@@ -5,3 +5,8 @@ from django.http import HttpResponse
 
 def saludar(request):
     return HttpResponse ("Hola")
+
+def saludar2 (request, nombre:str, apellido:str):
+    nombre = nombre.capitalize()
+    apellido = apellido.capitalize()
+    return HttpResponse (f"Hola {nombre} {apellido}")
