@@ -16,3 +16,22 @@ def index(request):
     año_actual = datetime.now().year
     contexto = {"año":año_actual}
     return render (request, "principal/index.html", contexto)
+
+def tirar_dados(request):
+    from datetime import datetime
+    from random import randint
+    
+    valor_de_dado = randint(1 ,6)
+    
+    if valor_de_dado == 6:
+        mensaje = f"Sacaste {valor_de_dado}. Ganaste! "
+    else:
+        mensaje = f"Sacaste {valor_de_dado}. Perdiste! Presiona F5 para otro intento."
+        
+    datos = {
+        'titulo' : "Juego del dodo",
+        'mensaje' : mensaje,
+        'fecha' : datetime.now().now,        
+    }
+    
+    return render(request, 'principal/dados.html', context=datos)
