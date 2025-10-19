@@ -26,4 +26,5 @@ urlpatterns = [
     path('tirar_dados', views.tirar_dados),
     path('ejercicio1', views.ejercicio1),
     path('ver_notas', views.ver_notas),
+    path('ejercicio2/', views.listar_usuarios),
 ]   

@@ -50,3 +50,11 @@ def ejercicio1(request):
 def ver_notas(request):
     notas = [1 , 2, 8, 7, 5, 9, 10]
     return render(request, 'principal/notas.html', {"notas":notas})
+
+def listar_usuarios(request):
+    usuarios = [
+        {'nombre':'Juan', 'edad': '28'},
+        {'nombre':'Pedro', 'edad': '35'},
+        {'nombre':'Luis', 'edad': '50'},
+    ]
+    return render(request, 'principal/ejercicio2.html', {"usuarios":usuarios})
