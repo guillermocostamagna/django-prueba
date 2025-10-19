@@ -35,3 +35,18 @@ def tirar_dados(request):
     }
     
     return render(request, 'principal/dados.html', context=datos)
+
+def ejercicio1(request):
+    nombre = "Guillermo"
+    apellido = "Costamagna"
+    
+    datos = {
+        'nombre' : nombre,
+        'apellido' : apellido,
+    }
+    
+    return render(request, 'principal\ejercicio1.html', context=datos)
+
+def ver_notas(request):
+    notas = [1 , 2, 8, 7, 5, 9, 10]
+    return render(request, 'principal/notas.html', {"notas":notas})
