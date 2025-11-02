@@ -1,23 +1,26 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+#from django.http import HttpResponse
+#from .models import Clientes
 
 # Create your views here.
-
-def saludar(request):
-    return HttpResponse ("Hola")
-
-def saludar2 (request, nombre:str, apellido:str):
-    nombre = nombre.capitalize()
-    apellido = apellido.capitalize()
-    return HttpResponse (f"Hola {nombre} {apellido}")
-
 def index(request):
     from datetime import datetime
     año_actual = datetime.now().year
     contexto = {"año":año_actual}
     return render (request, "principal/index.html", contexto)
 
-def tirar_dados(request):
+def about(request):
+    return render(request, 'principal/about.html')
+
+#def saludar(request):
+    return HttpResponse ("Hola")
+
+#def saludar2 (request, nombre:str, apellido:str):
+    nombre = nombre.capitalize()
+    apellido = apellido.capitalize()
+    return HttpResponse (f"Hola {nombre} {apellido}")
+
+#def tirar_dados(request):
     from datetime import datetime
     from random import randint
     
@@ -36,7 +39,7 @@ def tirar_dados(request):
     
     return render(request, 'principal/dados.html', context=datos)
 
-def ejercicio1(request):
+#def ejercicio1(request):
     nombre = "Guillermo"
     apellido = "Costamagna"
     
@@ -47,11 +50,11 @@ def ejercicio1(request):
     
     return render(request, 'principal\ejercicio1.html', context=datos)
 
-def ver_notas(request):
+#def ver_notas(request):
     notas = [1 , 2, 8, 7, 5, 9, 10]
     return render(request, 'principal/notas.html', {"notas":notas})
 
-def listar_usuarios(request):
+#def listar_usuarios(request):
     usuarios = [
         {'nombre':'Juan', 'edad': '28'},
         {'nombre':'Pedro', 'edad': '35'},

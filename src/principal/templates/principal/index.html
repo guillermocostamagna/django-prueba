@@ -6,14 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/tirar_dados"> Dados</a>
-    <br/>
-    <a href="/ejercicio1"> Ejercicio 1</a>
-    <br/>
-    <a href="/ejercicio2"> Ejercicio 2</a>
-    <br/>
-    <a href="/ver_notas"> Notas</a>
-    <br/>
-    <h1> Hola. Hecho en {{año}} </h1>
+    <li><a href="{% url 'producto:index' %}">App Producto</a></li>
+    <li><a href="{% url 'principal:about' %}">About</a></li>
+    <footer> Hola. Hecho en {{año}} </footer>
 </body>
 </html>
