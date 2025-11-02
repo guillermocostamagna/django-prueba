@@ -1,3 +1,14 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+admin.site.register(models.Pais)
+#admin.site.register(models.Clientes)
+
+@admin.register(models.Clientes)
+class ClienteAdmin(admin.ModelAdmin):
+    list_display = ("nombre", "apellido", "nacimiento", "pais_origen")
+    search_fields = ("nombre", "apellido")
+    list_filter = ("pais_origen",)
+    ordering = ("apellido", "nombre")
+    date_hierarchy = "nacimiento"
