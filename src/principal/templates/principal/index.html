@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <li><a href="{% url 'producto:index' %}">App Producto</a></li>
-    <li><a href="{% url 'principal:about' %}">About</a></li>
-    <footer> Hola. Hecho en {{año}} </footer>
-</body>
-</html>
+   {% extends 'principal/base.html' %}
+   
+   {% block content %}
+   <h1>Aprendiendo Python</h1>
+    <ul>
+        <li>Python es un lenguaje de alto nivel de programación interpretado cuya filosofía</li>
+        <li>hace hincapié en la legibilidad de su código. </li>
+        <li>Se trata de un lenguaje de programación multiparadigma, ya que soporta parcialmente la orientación a objetos, </li>
+        <li>programación imperativa y, en menor medida, programación funcional. </li>
+        <li>Es un lenguaje interpretado, dinámico, multiplataforma.</li>
+    </ul>
+    {% endblock content %}
