@@ -1,4 +1,6 @@
    {% extends 'principal/base.html' %}
+
+   {% load static %}
    
    {% block content %}
    <h1>Aprendiendo Python</h1>
@@ -9,4 +11,5 @@
         <li>programación imperativa y, en menor medida, programación funcional. </li>
         <li>Es un lenguaje interpretado, dinámico, multiplataforma.</li>
     </ul>
+    <img src="{% static 'principal/login.png' %}" height= "50px">
     {% endblock content %}

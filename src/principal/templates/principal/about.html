@@ -1,8 +1,10 @@
 {% extends 'principal/base.html' %}
 
+{% load static %}
+
 {% block content %}
     <h1>About</h1>
     <p>Guillermo</p>
     <p><a href="https//linkedin.com/in/guillermocostamagna/" target="_blank"> Linkedin</a></p>
-    
+    <img src="{% static 'principal/python.jpg' %}" height= "50px">
 {% endblock content %}
