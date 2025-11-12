@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from . import models
+from . import models, forms 
 
 # Create your views here.
 def index(request):
@@ -12,4 +12,6 @@ def categoria_list(request):
     context={"categorias":categorias}
     return render(request, "producto/categoria_list.html", context)
     
-    
+def categoria_create(request):
+    form = forms.CategoriaForm()
+    return render(request, "producto/categoria_form.html", {"form":form}) 

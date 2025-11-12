@@ -1,4 +1,9 @@
 {% extends 'principal/base.html' %}
 {% block content %}
-    <h1>App Producto</h1>
+    <h1>Producto</h1>
+        <div>
+            <a href="{% url 'producto:categoria_list' %}">Categorias de Productos</a>
+            <br>
+            <a href="{% url 'producto:categoria_create' %}">Crear Categoria</a>
+        </div>
 {% endblock content %}
