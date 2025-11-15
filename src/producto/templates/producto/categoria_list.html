@@ -2,10 +2,28 @@
 
 {% block content %}
     <h1>Productos: Categorías</h1>
-    <ul>
-        {% for categoria in categorias %}
-            <li>{{ categoria.nombre }}</li>
+    <a href="{% url 'producto:categoria_create' %}"><button>Crear Categoria</button></a>
+        
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+        {% for categoria in object_list %}
+            <tr>
+                <td>{{ categoria.nombre }}</td>
+                <td>
+                    <a href="{% url 'producto:categoria_update' categoria.id %}"><button>Editar</button></a>
+                </td>
+                <td>
+                    <a href="{% url 'producto:categoria_delete' categoria.id %}"><button>Eliminar</button></a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>No hay categorias</td>
+            </tr>
         {% endfor %}
-
-    </ul>
+    </table>
+    <a href="{% url 'producto:index' %}">Volver</a>
 {% endblock content %}
