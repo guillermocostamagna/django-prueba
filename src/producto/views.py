@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.views.generic import CreateView, DeleteView, UpdateView, ListView, DetailView
+from django.urls import reverse_lazy
 from . import models, forms 
 
 # Create your views here.
@@ -42,3 +44,24 @@ def categoria_delete (request, pk:int):
         query.delete()
         return redirect('producto:categoria_list')
     return render(request, "producto/categoria_confirm_delete.html", {"object":query})
+
+# PRODUCTO - LISTVIEW
+class ProductoListView(ListView):
+    model=models.Producto
+    
+class ProductoCreateView(CreateView):
+    model=models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
+    
+class ProductoUpdateView(UpdateView):
+    model=models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
+    
+class ProductoDetailView(DetailView):
+    model=models.Producto
+    
+class ProductoDeleteView(DeleteView):
+    model=models.Producto
+    success_url = reverse_lazy("producto:producto_list")
