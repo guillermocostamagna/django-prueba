@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from .forms import LoginForm
+from django.contrib.auth.views import LoginView 
+from django.urls import reverse_lazy
 #from django.http import HttpResponse
 #from .models import Clientes
 
@@ -12,13 +15,18 @@ def index(request):
 def about(request):
     return render(request, 'principal/about.html')
 
+class MiLogin(LoginView):
+    template_name='principal/login.html'
+    authentication_form = LoginForm
+    next_page = reverse_lazy("principal:index")
+    
 #def saludar(request):
-    return HttpResponse ("Hola")
+    #return HttpResponse ("Hola")
 
 #def saludar2 (request, nombre:str, apellido:str):
-    nombre = nombre.capitalize()
-    apellido = apellido.capitalize()
-    return HttpResponse (f"Hola {nombre} {apellido}")
+    #nombre = nombre.capitalize()
+    #apellido = apellido.capitalize()
+    #return HttpResponse (f"Hola {nombre} {apellido}")
 
 #def tirar_dados(request):
     from datetime import datetime
@@ -37,7 +45,7 @@ def about(request):
         'fecha' : datetime.now().now,        
     }
     
-    return render(request, 'principal/dados.html', context=datos)
+    #return render(request, 'principal/dados.html', context=datos)
 
 #def ejercicio1(request):
     nombre = "Guillermo"
@@ -48,11 +56,11 @@ def about(request):
         'apellido' : apellido,
     }
     
-    return render(request, 'principal\ejercicio1.html', context=datos)
+    #return render(request, 'principal\ejercicio1.html', context=datos)
 
 #def ver_notas(request):
     notas = [1 , 2, 8, 7, 5, 9, 10]
-    return render(request, 'principal/notas.html', {"notas":notas})
+    #return render(request, 'principal/notas.html', {"notas":notas})
 
 #def listar_usuarios(request):
     usuarios = [
@@ -60,4 +68,4 @@ def about(request):
         {'nombre':'Pedro', 'edad': '35'},
         {'nombre':'Luis', 'edad': '50'},
     ]
-    return render(request, 'principal/ejercicio2.html', {"usuarios":usuarios})
+    #return render(request, 'principal/ejercicio2.html', {"usuarios":usuarios})

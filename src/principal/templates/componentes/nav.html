@@ -1,7 +1,15 @@
 <nav>
         <ul>
             <li><a href="{% url 'principal:index' %}"> Inicio</a></li>
-            <li><a href="{% url 'producto:index' %}">App Producto</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'producto:index' %}">App Producto</a></li>
+                <form action="{% url 'principal:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Cerrar Sesion</button>
+                </form>
+            {% else %}
+                <li><a href="{% url 'principal:login' %}">Login</a></li>
+            {% endif %}
             <li><a href="{% url 'principal:about' %}">About</a></li>
         </ul>
     </nav>
