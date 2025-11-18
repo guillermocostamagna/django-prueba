@@ -6,7 +6,7 @@
     {% else %}
         <h1>Producto: Categorias - Formulario de Creación</h1>
     {% endif %}
-    
+
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}

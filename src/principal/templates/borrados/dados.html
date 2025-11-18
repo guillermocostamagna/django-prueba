@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{titulo}}</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{titulo}}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+        background-color: #f4f4f4;
+        color: #333;
+      }
 
-    h3 {
-      color: #2c3e50;
-    }
+      h3 {
+        color: #2c3e50;
+      }
 
-    button.boton-volver {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px 8px;
-      font-size: 13px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      line-height: 1;
-      max-width: max-content;
-      transition: background-color 0.3s ease;
-    }
+      button.boton-volver {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 8px;
+        font-size: 13px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        line-height: 1;
+        max-width: max-content;
+        transition: background-color 0.3s ease;
+      }
 
-    button.boton-volver:hover {
-      background-color: #2980b9;
-    }
+      button.boton-volver:hover {
+        background-color: #2980b9;
+      }
 
-    footer {
-      margin-top: 0.8rem; /* separa un poco del botón */
-      padding: 0;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <h3>{{mensaje}}</h3>
+      footer {
+        margin-top: 0.8rem; /* separa un poco del botón */
+        padding: 0;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>{{mensaje}}</h3>
 
-  <button class="boton-volver" onclick="location.href='/'">Volver</button>
+    <button class="boton-volver" onclick="location.href='/'">Volver</button>
 
-  <footer>Hecho en {{fecha}}</footer>
-</body>
+    <footer>Hecho en {{fecha}}</footer>
+  </body>
 </html>

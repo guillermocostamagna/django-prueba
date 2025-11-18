@@ -1,17 +1,22 @@
 from django.shortcuts import render
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from django.contrib.auth.views import LoginView 
 from django.urls import reverse_lazy
+from django.contrib import messages
+from django.views.generic import CreateView
+from django.contrib.auth.decorators import login_not_required
 #from django.http import HttpResponse
 #from .models import Clientes
 
 # Create your views here.
+@login_not_required
 def index(request):
     from datetime import datetime
     año_actual = datetime.now().year
     contexto = {"año":año_actual}
     return render (request, "principal/index.html", contexto)
 
+@login_not_required
 def about(request):
     return render(request, 'principal/about.html')
 
@@ -19,6 +24,20 @@ class MiLogin(LoginView):
     template_name='principal/login.html'
     authentication_form = LoginForm
     next_page = reverse_lazy("principal:index")
+    
+    def form_valid(self, form):
+        usuario = form.get_user()
+        messages.success(self.request, f"Inicio de sesion exitoso. Bienvenido { usuario.username }")
+        return super().form_valid(form)
+
+class MiRegisterView(CreateView):
+    form_class = RegisterForm
+    template_name = "principal/register.html"
+    success_url = reverse_lazy("principal:login")
+    
+    def form_valid(self, form):
+        messages.success(self.request, f"Registro exitoso.")
+        return super().form_valid(form)
     
 #def saludar(request):
     #return HttpResponse ("Hola")

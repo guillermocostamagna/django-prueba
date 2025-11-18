@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Usuarios</title>
-</head>
-<style>
-    button.boton-volver {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px 8px;
-      font-size: 13px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      line-height: 1;
-      max-width: max-content;
-      transition: background-color 0.3s ease;
-    }
-</style>
-<body>
-    <h1>Ejercicio 2</h1>
-    <h3> Datos de Usuario</h3>
-    {% for usuario in usuarios %}
-        {% for clave, valor in usuario.items %}
-            <p>{{clave | title}}:{{valor}}</p>
-        {% endfor%}
-    {% endfor %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado de Usuarios</title>
+    </head>
+    <style>
+        button.boton-volver {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 8px;
+            font-size: 13px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            line-height: 1;
+            max-width: max-content;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+    <body>
+        <h1>Ejercicio 2</h1>
+        <h3> Datos de Usuario</h3>
+        {% for usuario in usuarios %}
+            {% for clave, valor in usuario.items %}
+                <p>{{clave | title}}:{{valor}}</p>
+            {% endfor%}
+        {% endfor %}
 
-    <button class="boton-volver" onclick="location.href='/'">Volver</button>
-</body>
+        <button class="boton-volver" onclick="location.href='/'">Volver</button>
+    </body>
 </html>
