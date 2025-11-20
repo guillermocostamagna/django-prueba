@@ -1,16 +1,46 @@
 {% extends 'principal/base.html' %}
 
 {% block content %}
-    {% if form.instance.pk %}
-        <h1>Producto: Formulario de Edición</h1>
-    {% else %}
-        <h1>Producto: Formulario de Creación</h1>
-    {% endif %}
-
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Guardar</button>
-    </form>
-    <a href="{% url 'producto:producto_list' %}"><button>Volver</button></a>
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+            {% if form.instance.pk %}
+                <h2>Editar Producto</h2>
+            {% else %}
+                <h2>Crear Producto</h2>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.nombre.label_tag }}
+                    {{ form.nombre }}
+                </div>
+                <div class="mb-3">
+                    {{ form.categoria.label_tag }}
+                    {{ form.categoria }}
+                </div>
+                <div class="mb-3">
+                    {{ form.descripcion.label_tag }}
+                    <textarea class="form-control" name="descripcion" rows="4" placeholder="Ingrese una descripción detallada">{{ form.descripcion.value }}</textarea>
+                </div>
+                <div class="mb-3">
+                    {{ form.precio.label_tag }}
+                    {{ form.precio }}
+                </div>
+                <div class="mb-3">
+                    {{ form.stock.label_tag }}
+                    {{ form.stock }}
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'producto:producto_list' %}" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>
 {% endblock content %}

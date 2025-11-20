@@ -1,19 +1,29 @@
 {% extends 'principal/base.html' %}
 
 {% block content %}
-    <h1>Producto: Vista en Detalle</h1>
-    <ul>
-        <li>Categoria: {{object.categoria}}</li>
-        <li>Nombre: {{object.nombre}}</li>
-        <li>Descripcion:
-            {% if object.descripcion %}
-                {{object.descripcion}}
-            {% else %}
-                -
-            {% endif %}
-        </li>
-        <li>Nombre: {{object.precio}}</li>
-        <li>Stock: {{object.stock}}</li>
-    </ul>
-    <a href="{% url 'producto:producto_list' %}"><button>Volver</button></a>
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white text-center">
+            <h2>Detalle del Producto</h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Categoría:</strong> {{ object.categoria }}</li>
+                <li class="list-group-item"><strong>Nombre:</strong> {{ object.nombre }}</li>
+                <li class="list-group-item"><strong>Descripción:</strong> 
+                    {% if object.descripcion %}
+                        {{ object.descripcion }}
+                    {% else %}
+                        <em>No disponible</em>
+                    {% endif %}
+                </li>
+                <li class="list-group-item"><strong>Precio:</strong> ${{ object.precio }}</li>
+                <li class="list-group-item"><strong>Stock:</strong> {{ object.stock }}</li>
+            </ul>
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'producto:producto_list' %}" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>
 {% endblock content %}

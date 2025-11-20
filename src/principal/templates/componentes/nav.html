@@ -1,24 +1,50 @@
-<!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand" href="{% url 'principal:index' %}">Aprendiendo Python</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'principal:index' %}">Home</a></li>
-                        {% if user.is_authenticated %}
-                            <li><a class="nav-link" href="{% url 'producto:index' %}">App Producto</a></li>
-                            <form action="{% url 'principal:logout' %}" method="post">
-                                {% csrf_token %}
-                                <button type="submit">Cerrar Sesion</button>
-                            </form>
-                        {% else %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'principal:login' %}">Login</a></li>
-                        {% endif %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'principal:about' %}">About</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<!-- Modern responsive navbar with dropdowns and icons -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="{% url 'principal:index' %}">Aprendiendo Python</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'principal:index' %}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'producto:index' %}">
+                            <i class="fas fa-box"></i> App Producto
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i> Usuario
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li>
+                                <form action="{% url 'principal:logout' %}" method="post" class="dropdown-item">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-link">Cerrar Sesión</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'principal:login' %}">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'principal:about' %}">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
